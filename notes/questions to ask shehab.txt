@@ -1,0 +1,15 @@
+questions to ask shehab
+
+do you have a products that belong to multiple categories?
+
+
+
+homepage:
+	navbar
+	search bar (will be within the navbar)
+	hero section
+	values section
+previous clients/certifications given (will be like a slider/carrousel that's always moving)
+featured products
+contact us
+footer
