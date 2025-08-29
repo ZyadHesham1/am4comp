@@ -42,6 +42,10 @@
     },
     "price": {
       "type": "decimal"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }

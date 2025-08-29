@@ -5,12 +5,12 @@ import HeroSection  from '@/components/shared/homepage/hero.section';
 import  ValuesSection  from '@/components/shared/homepage/values.section';
 
 
-export default async function ProductsPage() {
+export default async function Homepage() {
   const strapiResponse: StrapiResponse<Product> = await fetchAPI('/products', {
     populate: 'image', // Specifically ask for the image relation to be populated
   });
 
-  const products = strapiResponse.data;
+  const products = Array.isArray(strapiResponse.data) ? strapiResponse.data : [strapiResponse.data];
 
   return (
     <>

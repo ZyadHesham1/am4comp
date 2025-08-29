@@ -14,7 +14,7 @@ interface StrapiRelation {
 
 // This is the correct, "flat" shape for a single product from your API.
 export interface Product {
-  id: number;
+  id: number | null;
   title: string;
   description: string | null;
   price: number | null;
