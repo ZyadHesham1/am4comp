@@ -9,7 +9,7 @@ export default async function SingleProductPage({ params }: { params: { slug: st
   const product = await getProductBySlug(params.slug);
 
   // Destructure directly from the flat product object.
-  const { title, description, price, image, product: category, brand } = product;
+  const { title, description, price, image, category, brand } = product;
   const imageUrl = image?.url ? STRAPI_URL + image.url : '/placeholder.png';
 
   return (

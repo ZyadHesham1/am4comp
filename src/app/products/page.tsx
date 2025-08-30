@@ -41,8 +41,8 @@ export default function ProductsPage() {
       };
 
       // 3. Fetch data with the new query
-      const res: StrapiResponse<Product> = await fetchAPI('/products', query);
-      setProducts(Array.isArray(res.data) ? res.data : [res.data]);
+const res: StrapiResponse<Product> = await fetchAPI('/products', query);
+setProducts(res.data ? (Array.isArray(res.data) ? res.data : [res.data]) : []);
       setIsLoading(false);
     }
 
