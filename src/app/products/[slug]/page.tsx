@@ -5,7 +5,13 @@ import { Badge } from '@/components/ui/badge';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
-export default async function SingleProductPage({ params }: { params: { slug: string } }) {
+type ProductPageProps = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+
+export default async function SingleProductPage({ params }: ProductPageProps) {
   const product = await getProductBySlug(params.slug);
 
   // Destructure directly from the flat product object.
