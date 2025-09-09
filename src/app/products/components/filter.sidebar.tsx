@@ -80,7 +80,25 @@ export default function FilterSidebar() {
             </div>
           </AccordionContent>
         </AccordionItem>
-        {/* You can add the Brand accordion here using the same pattern */}
+        <AccordionItem value="brand">
+          <AccordionTrigger>Brand</AccordionTrigger>
+          <AccordionContent>
+            <div className="space-y-2">
+              {brands.map(brand => (
+                <div key={brand.name} className="flex items-center space-x-2">
+                  <Checkbox
+                    id={`brand-${brand.slug}`}
+                    checked={selectedBrands.includes(brand.slug)}
+                    onCheckedChange={() => handleCheckboxChange('brand', brand.slug)}
+                  />
+                  <label htmlFor={`brand-${brand.slug}`} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                    {brand.name}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
       </Accordion>
     </aside>
   );
