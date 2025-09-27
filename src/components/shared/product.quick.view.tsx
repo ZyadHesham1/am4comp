@@ -12,9 +12,10 @@ interface ProductQuickViewProps {
 }
 
 export function ProductQuickView({ product, children }: ProductQuickViewProps) {
-  const { title, description, price, image } = product;
-  const imageUrl = image ? STRAPI_URL + image.url : '/placeholder.png';
-
+  const { title, description, price } = product;
+  const imageUrl = product.image?.[0]?.url 
+    ? `${STRAPI_URL}${product.image[0].url}` 
+    : '/placeholder.png';
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>

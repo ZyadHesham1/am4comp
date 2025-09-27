@@ -26,14 +26,14 @@ export default async function HeroSection({ lng, backgroundImageUrl, ctaLink }: 
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center p-4">
         
         {/* Use the 't' function to get the content from your JSON file */}
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-md">
+        <h1 className="text-4xl sm:text-4xl font-bold leading-tight drop-shadow-md max-w-4xl">
           {t('hero.headline')}
         </h1>
         <p className="mt-4 max-w-2xl text-lg md:text-xl text-gray-200 drop-shadow-sm">
           {t('hero.tagline')}
         </p>
         <Link href={ctaLink} className="mt-8">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg">
+          <Button size="lg" className="bg-primary hover:bg-darker text-white font-bold py-3 px-6 rounded-lg">
             {t('hero.ctaText')}
           </Button>
         </Link>

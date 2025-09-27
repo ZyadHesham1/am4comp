@@ -13,7 +13,7 @@ export function Breadcrumbs() {
   }
 
   // Split the pathname into segments and remove any empty strings from leading slashes.
-  const segments = pathname.split('/').filter(Boolean);
+  const segments = pathname?.split('/').filter(Boolean);
 
   // Helper function to make segment text more readable (e.g., 'some-product-name' -> 'Some Product Name')
   const formatSegment = (segment: string) => {
@@ -24,7 +24,7 @@ export function Breadcrumbs() {
 
   return (
     // Use a <nav> element for accessibility
-    <nav aria-label="breadcrumb" className="container py-4">
+    <nav aria-label="breadcrumb" className="container p-4 ">
       <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
         {/* Always include the "Home" link at the beginning */}
         <li>
@@ -34,7 +34,7 @@ export function Breadcrumbs() {
         </li>
 
         {/* Map over the path segments to create the rest of the breadcrumbs */}
-        {segments.map((segment, index) => {
+        {segments?.map((segment, index) => {
           // Build the cumulative path for each link
           const href = '/' + segments.slice(0, index + 1).join('/');
           

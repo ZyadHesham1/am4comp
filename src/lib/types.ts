@@ -44,7 +44,7 @@ export interface Product {
   title: string;
   description: string | null;
   price: number | null;
-  image: StrapiImage | null;
+  image: StrapiImage[] | null;
   // Strapi calls the category relation 'product' in your JSON, let's match that.
   category: StrapiRelation | null;
   brand: StrapiRelation | null;

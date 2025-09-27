@@ -4,6 +4,7 @@ import "./globals.css"; // <-- THIS LINE IS CRITICAL. IT LOADS ALL YOUR STYLES.
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/shared/Header";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { Footer } from "@/components/shared/Footer";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -30,7 +31,7 @@ export default function RootLayout({
         <main>
           <Breadcrumbs />
           {children}</main> {/* Your page content will be rendered here */}
-        {/* We will add a <Footer /> component here later */}
+        <Footer /> 
       </body>
     </html>
   );

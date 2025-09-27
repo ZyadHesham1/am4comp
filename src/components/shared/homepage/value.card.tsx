@@ -23,7 +23,7 @@ export function ValueCard({ Icon, title, description }: ValueCardProps) {
       <div className="flex justify-center mb-4">
         <div className="p-4 bg-white rounded-full shadow-inner">
            {/* The icon will change color when the parent card is hovered */}
-           <Icon className="h-8 w-8 text-gray-500 transition-colors duration-300 group-hover:text-blue-600" />
+           <Icon className="h-8 w-8 text-gray-500 transition-colors duration-300 group-hover:text-primary" />
         </div>
       </div>
       <div className="text-center">

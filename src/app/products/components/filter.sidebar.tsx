@@ -56,9 +56,10 @@ export default function FilterSidebar() {
 
   const selectedCategories = searchParams?.get('category')?.split(',') || [];
   const selectedBrands = searchParams?.get('brand')?.split(',') || [];
+  
 
   return (
-    <aside className="w-64 hidden lg:block"> {/* Hide on mobile/tablet */}
+    <aside className="w-64 hidden lg:block pl-4"> {/* Hide on mobile/tablet */}
       <h3 className="text-xl font-bold mb-4">Filters</h3>
       <Accordion type="multiple" defaultValue={['category', 'brand']} className="w-full">
         <AccordionItem value="category">

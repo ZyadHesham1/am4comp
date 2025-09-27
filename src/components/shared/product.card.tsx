@@ -10,14 +10,20 @@ interface ProductCardProps {
   product: Product;
 }
 
+
+
+
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
 export default function ProductCard({ product }: ProductCardProps) {
   if (!product) return null;
 
   const { title, price, image } = product;
-  const imageUrl = image ? STRAPI_URL + image.url : '/placeholder.png';
-
+    const imageUrl = product.image?.[0]?.url 
+    ? `${STRAPI_URL}${product.image[0].url}` 
+    : '/placeholder.png';
+ // const imageUrl = STRAPI_URL + image.url;
+console.log(image)
   return (
     // The main card is now a positioning context for the hover overlay
     <div className="group relative">

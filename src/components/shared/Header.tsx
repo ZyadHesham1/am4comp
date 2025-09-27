@@ -30,7 +30,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2">
           {/* Use a placeholder for the logo for now. Replace with your actual logo in /public */}
           {/* <Image src="/logo.svg" alt="AM4Computers Logo" width={32} height={32} /> */}
-          <span className="text-lg font-bold m-2">AM4Computers</span>
+          <span className="text-lg font-bold m-2 p-4">AM4Computers</span>
         </Link>
 
         {/* === Desktop Navigation (Center/Right - Hidden on Mobile) === */}

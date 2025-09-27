@@ -13,7 +13,7 @@ const initI18next = async (lng: string, ns: string | string[]) => {
     .init({
       supportedLngs: ['en', 'ar'], // Add the languages you support
       fallbackLng: 'ar',           // Default language if one is not found
-      lng: "ar",
+      lng: "en",
       ns,
       defaultNS: 'translation',
     });

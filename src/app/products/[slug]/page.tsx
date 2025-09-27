@@ -2,22 +2,45 @@ import { getProductBySlug } from '@/lib/strapi';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+// import { Metadata } from 'next';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
-type ProductPageProps = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+// type Props = {
+//   params: { slug: string };
+//   searchParams: { [key: string]: string | string[] | undefined };
+// };
+
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+//   // Fetch product just for metadata
+//   const product = await getProductBySlug(params.slug);
+  
+//   // Handle case where product is not found
+//   if (!product) {
+//     return {
+//       title: 'Product Not Found',
+//     };
+//   }
+
+//   return {
+//     title: `${product.title} | AM4Computers`,
+//     description: product.description,
+//   };
+// }
 
 
-export default async function SingleProductPage({ params }: ProductPageProps) {
+export default async function SingleProductPage({ params }: { params: { slug: string } }) {
   const product = await getProductBySlug(params.slug);
 
-  // Destructure directly from the flat product object.
-  const { title, description, price, image, category, brand } = product;
-  const imageUrl = image?.url ? STRAPI_URL + image.url : '/placeholder.png';
+    if (!product) {
+    return <div>Product not found.</div>;
+    }
 
+  // Destructure directly from the flat product object.
+  const { title, description, price, category, brand } = product;
+  const imageUrl = product.image?.[0]?.url 
+    ? `${STRAPI_URL}${product.image[0].url}` 
+    : '/placeholder.png';
   return (
     <div className="container py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -48,7 +71,7 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
           </div>
           <div className="mt-auto pt-8">
             <Button size="lg" className="w-full">
-              Add to Cart (Coming Soon)
+              view details
             </Button>
           </div>
         </div>
