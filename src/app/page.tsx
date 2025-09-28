@@ -10,8 +10,11 @@ export default async function Homepage() {
     populate: 'image', // Specifically ask for the image relation to be populated
   });
 
-  const products = Array.isArray(strapiResponse.data) ? strapiResponse.data : [strapiResponse.data];
-
+  const products = Array.isArray(strapiResponse.data)
+    ? strapiResponse.data
+    : strapiResponse.data
+      ? [strapiResponse.data]
+      : [];
   return (
     <>
     <HeroSection 
