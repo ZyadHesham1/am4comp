@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Header } from "@/components/shared/Header";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { Footer } from "@/components/shared/Footer";
+import { Suspense } from "react";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -27,7 +28,9 @@ export default function RootLayout({
         "min-h-screen bg-background font-sans antialiased",
         inter.className
       )}>
-        <Header />
+        <Suspense fallback={<div className="h-16 border-b"></div>}>
+          <Header />
+        </Suspense>
         <main>
           <Breadcrumbs />
           {children}</main> {/* Your page content will be rendered here */}
